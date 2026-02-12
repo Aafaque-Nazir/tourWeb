@@ -17,7 +17,7 @@ export default function Hero() {
                 className="absolute inset-0 z-0"
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2800&auto=format&fit=crop"
+                    src="/assets/main-hero.png"
                     alt="Dubai Mirage"
                     fill
                     className="object-cover scale-105"

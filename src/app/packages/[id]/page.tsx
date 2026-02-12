@@ -2,8 +2,8 @@ import { packages } from '@/lib/data';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
-import { Check } from 'lucide-react';
-import Image from 'next/image';
+import PackageHero from '@/components/PackageHero';
+import { Check, Clock, MapPin, Star } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
@@ -19,69 +19,67 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
         <main className="min-h-screen bg-[#020617] text-[#f8fafc]">
             <Navbar />
 
-            {/* Cinematic Hero */}
-            <section className="relative h-[70vh] w-full flex items-end pb-20 overflow-hidden">
-                <Image src={pkg.image} alt={pkg.title} fill className="object-cover" priority />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/60 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+            {/* Dynamic Client Hero */}
+            <PackageHero
+                image={pkg.image}
+                title={pkg.title}
+                category={pkg.category}
+                duration={pkg.duration}
+                price={pkg.price}
+            />
 
-                {/* Nano Tech Overlay */}
-                <div className="absolute inset-0 nano-overlay opacity-20 pointer-events-none" />
-
-                <div className="container relative z-10 max-w-3xl">
-                    <span className="inline-block text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-4 font-bold">
-                        {pkg.category} Experience
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-playfair text-white tracking-tighter leading-[0.9] mb-6">
-                        {pkg.title}
-                    </h1>
-                    <div className="flex items-baseline gap-8 text-white/50">
-                        <span className="text-[11px] uppercase tracking-[0.3em]">{pkg.duration}</span>
-                        <span className="text-3xl font-playfair text-[#c5a021] italic">${pkg.price}</span>
-                        <span className="text-[11px] uppercase tracking-[0.2em] text-white/30">/ person</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* Content Grid */}
-            <section className="py-20 container">
+            {/* Elegant Content Grid */}
+            <section className="relative py-24 container z-20 -mt-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                    {/* Details */}
-                    <div className="lg:col-span-7 space-y-16">
-                        <div>
-                            <h2 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-6 font-bold">Overview</h2>
-                            <p className="text-base text-white/60 leading-relaxed font-light">
+                    {/* Main Content */}
+                    <div className="lg:col-span-8 bg-[#020617]/50 backdrop-blur-xl border border-white/5 p-8 md:p-12 shadow-2xl">
+                        {/* Overview */}
+                        <div className="mb-16">
+                            <h2 className="text-3xl font-playfair text-white mb-6 flex items-baseline gap-4">
+                                <span className="text-[#c5a021]">01.</span> The Experience
+                            </h2>
+                            <p className="text-lg text-white/70 leading-relaxed font-light first-letter:text-5xl first-letter:font-playfair first-letter:text-white first-letter:float-left first-letter:mr-3">
                                 {pkg.description}
                             </p>
                         </div>
 
-                        <div>
-                            <h2 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-8 font-bold">Included</h2>
+                        {/* Highlights */}
+                        <div className="mb-16">
+                            <h2 className="text-3xl font-playfair text-white mb-8 flex items-baseline gap-4">
+                                <span className="text-[#c5a021]">02.</span> Highlights
+                            </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {pkg.highlights.map((h, i) => (
-                                    <div key={i} className="flex items-center gap-4 p-5 border border-white/[0.03] hover:border-[#c5a021]/20 transition-colors">
-                                        <Check className="w-4 h-4 text-[#c5a021] shrink-0" />
-                                        <span className="text-[11px] uppercase tracking-[0.15em] text-white/70">{h}</span>
+                                    <div key={i} className="flex items-center gap-4 p-6 border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-colors group">
+                                        <div className="w-10 h-10 flex items-center justify-center border border-[#c5a021]/30 rounded-full group-hover:border-[#c5a021] transition-colors">
+                                            <Star className="w-4 h-4 text-[#c5a021]" />
+                                        </div>
+                                        <span className="text-sm font-medium tracking-wide text-white/80">{h}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Itinerary */}
+                        {/* Itinerary Timeline */}
                         <div>
-                            <h2 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-8 font-bold">Itinerary</h2>
-                            <div className="space-y-0 border-l border-white/[0.05]">
+                            <h2 className="text-3xl font-playfair text-white mb-10 flex items-baseline gap-4">
+                                <span className="text-[#c5a021]">03.</span> Itinerary
+                            </h2>
+                            <div className="space-y-0 relative border-l-2 border-white/[0.05] ml-4">
                                 {[
-                                    { time: '09:00', title: 'Luxury Pickup', desc: 'Chauffeur arrives at your hotel in a premium vehicle.' },
-                                    { time: '10:30', title: 'Welcome & Briefing', desc: 'Traditional Arabic coffee welcome ceremony.' },
-                                    { time: '12:00', title: 'Core Experience', desc: 'The main activity commences with VIP access.' },
-                                    { time: '14:00', title: 'Gourmet Dining', desc: 'Five-star catered meal with refreshments.' },
+                                    { time: '09:00', title: 'Luxury Pickup', desc: 'Chauffeur arrives at your hotel in a premium vehicle.', icon: MapPin },
+                                    { time: '10:30', title: 'Welcome & Briefing', desc: 'Traditional Arabic coffee welcome ceremony.', icon: Star },
+                                    { time: '12:00', title: 'Core Experience', desc: 'The main activity commences with VIP access.', icon: Clock },
+                                    { time: '14:00', title: 'Gourmet Dining', desc: 'Five-star catered meal with refreshments.', icon: Check },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="relative pl-10 py-8 group transition-all duration-500 hover:bg-white/[0.02]">
-                                        <div className="absolute left-[-5px] top-10 w-[10px] h-[10px] bg-[#050a18] border border-[#c5a021] group-hover:bg-[#c5a021] transition-colors duration-500" />
-                                        <span className="text-[10px] tracking-[0.4em] text-[#c5a021] font-bold block mb-2 opacity-70 group-hover:opacity-100 transition-opacity">{item.time}</span>
-                                        <h4 className="text-lg font-playfair text-white mb-2 group-hover:translate-x-2 transition-transform duration-500">{item.title}</h4>
-                                        <p className="text-[11px] text-white/40 uppercase tracking-[0.1em] group-hover:text-white/60 transition-colors">{item.desc}</p>
+                                    <div key={idx} className="relative pl-12 pb-12 last:pb-0 group">
+                                        <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[#020617] border-2 border-[#c5a021] z-10 group-hover:scale-125 transition-transform duration-300" />
+
+                                        <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-2">
+                                            <span className="text-sm font-bold text-[#c5a021] tracking-widest">{item.time}</span>
+                                            <h4 className="text-xl font-playfair text-white group-hover:text-[#c5a021] transition-colors">{item.title}</h4>
+                                        </div>
+                                        <p className="text-sm text-white/50 leading-relaxed font-light">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -89,9 +87,17 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
                     </div>
 
                     {/* Sidebar Booking */}
-                    <div className="lg:col-span-5">
-                        <div className="sticky top-28">
+                    <div className="lg:col-span-4 relative">
+                        <div className="sticky top-32">
+                            <div className="absolute -inset-4 bg-gradient-to-b from-[#c5a021]/10 to-transparent blur-xl -z-10" />
                             <BookingForm packageTitle={pkg.title} />
+
+                            <div className="mt-8 p-6 border border-white/5 bg-white/[0.02]">
+                                <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#c5a021] mb-4 font-bold">Concept Note</h4>
+                                <p className="text-xs text-white/40 leading-relaxed italic">
+                                    "We don't sell tours. We design moments that become memory artifacts. This itinerary is curated for the 1%."
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
