@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Ultra-Premium Obsidian & Gold Palette */
+  --background: 222 47% 4%;
+  /* #020617 - Deepest Obsidian */
+  --foreground: 210 40% 98%;
+  /* #f8fafc - Ethereal White */
+
+  --primary: 43 74% 56%;
+  /* #c5a021 - Burnished Liquid Gold */
+  --primary-foreground: 222 47% 4%;
+
+  --secondary: 222 47% 10%;
+  /* #0f172a - Slate 900 */
+  --secondary-foreground: 210 40% 98%;
+
+  --accent: 43 74% 56%;
+  --accent-foreground: 222 47% 4%;
+
+  --muted: 222 47% 10%;
+  --muted-foreground: 215 20% 50%;
+
+  --card: 222 47% 6%;
+  --card-foreground: 210 40% 98%;
+
+  --border: 222 47% 15%;
+  --input: 222 47% 10%;
+  --ring: 43 74% 56%;
+
+  --radius: 0rem;
+  /* Hard edges for minimalist elegance */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 400;
+  /* Lighter weight for high-end feel */
+  letter-spacing: -0.04em;
+}
+
+/* Sexy UI Utilities */
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(to bottom, #fcd34d 0%, #c5a021 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-nav {
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.btn-sexy {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 2.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.btn-sexy:hover {
+  letter-spacing: 0.3em;
+  background: white;
+  color: black;
+}
+
+.btn-outline-sexy {
+  padding: 1rem 2.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: white;
+  transition: all 0.4s;
+}
+
+.btn-outline-sexy:hover {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.card-luxury {
+  background: #050a18;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  border-color: rgba(197, 160, 33, 0.3);
+  transform: translateY(-8px);
+}
+
+/* Custom Scrollbar for sexy look */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5a021;
+}
+
+/* Animations */
+.reveal-text {
+  overflow: hidden;
+}
