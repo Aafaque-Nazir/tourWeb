@@ -39,7 +39,7 @@ export default function BookingForm({ packageTitle }: { packageTitle: string }) 
     const labelClasses = "text-[9px] uppercase tracking-[0.4em] text-white/30 ml-1 mb-2 block font-bold";
 
     return (
-        <div className="bg-[#050a18] border border-white/[0.03] p-10">
+        <div className="bg-[#050a18]/80 backdrop-blur-md border border-white/[0.05] p-10 sticky top-28 transition-all duration-500 hover:border-[#c5a021]/20">
             <div className="mb-10">
                 <h3 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-3 font-bold">Reserve</h3>
                 <p className="text-[11px] text-white/30 uppercase tracking-[0.15em]">

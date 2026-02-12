@@ -2,6 +2,8 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import PackageCard from '@/components/PackageCard';
+import PackageSlider from '@/components/PackageSlider'; // Keeping for potential future use or removing if completely unused
+import LuxuryGallery from '@/components/LuxuryGallery';
 import { packages } from '@/lib/data';
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
               Curated Selection
             </span>
             <h2 className="text-5xl md:text-7xl font-playfair text-white tracking-tighter leading-tight">
-              THE <span className="italic">COLLECTION</span>
+              THE <span className="text-[#c5a021]">COLLECTION</span>
             </h2>
           </div>
           <p className="text-[11px] uppercase tracking-[.3em] text-white/30 max-w-sm leading-loose">
@@ -49,6 +51,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LuxuryGallery />
 
       <Footer />
     </main>

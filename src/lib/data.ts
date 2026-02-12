@@ -17,7 +17,7 @@ export const packages: Package[] = [
         category: 'Desert',
         price: 550,
         duration: '5 Hours',
-        image: 'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=2070',
+        image: '/assets/desert-hero.png', // Generated Nano Asset
         description: 'A high-octane expedition into the heart of the Arabian desert. Private 4x4 dune bashing, falconry, and a secluded gourmet majlis dinner.',
         highlights: ['Instant Hotel Pickup', 'Private Luxury Majlis', 'Elite Sands Access'],
         pickupReady: true,
@@ -28,7 +28,7 @@ export const packages: Package[] = [
         category: 'Tech',
         price: 350,
         duration: '4 Hours',
-        image: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=2480', // Museum of the Future
+        image: '/assets/tech-hero.png', // Generated Nano Asset
         description: 'Explore the architectural future of Dubai. Private tour of the Museum of the Future and an exclusive access to the Sky View glass slide.',
         highlights: ['VIP Museum Entrance', 'Sky View Glass Access', 'Tech Hub Insights'],
         pickupReady: true,
@@ -39,7 +39,7 @@ export const packages: Package[] = [
         category: 'Fusion',
         price: 850,
         duration: '8 Hours',
-        image: 'https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2800', // Dubai Mix
+        image: '/assets/fusion-hero.png', // Generated Nano Asset
         description: 'The ultimate Dubai duality. A serene desert sunset followed by a high-fashion night cruise through the Neon-lit Dubai Marina.',
         highlights: ['Sunset Desert Safari', 'Neon Marina Cruise', 'Five-Star Catering'],
         pickupReady: true,

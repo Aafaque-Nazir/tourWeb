@@ -43,7 +43,7 @@
 body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-lato), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,7 +54,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-messiri), sans-serif;
   font-weight: 400;
   /* Lighter weight for high-end feel */
   letter-spacing: -0.04em;
@@ -150,4 +150,13 @@ h6 {
 /* Animations */
 .reveal-text {
   overflow: hidden;
+}
+
+/* Nano Mesh Overlay */
+.nano-overlay {
+  background-image:
+    linear-gradient(rgba(197, 160, 33, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 160, 33, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }

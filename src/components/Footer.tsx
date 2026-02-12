@@ -2,20 +2,45 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#020617] border-t border-white/[0.03] pt-24 pb-12">
-            <div className="container">
+        <footer className="bg-[#020617] border-t border-[#c5a021]/20 pt-32 pb-16 relative overflow-hidden">
+            {/* Nano Tech Overlay */}
+            <div className="absolute inset-0 nano-overlay opacity-10 pointer-events-none" />
+
+            <div className="container relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
                     {/* Brand */}
-                    <div className="md:col-span-4 space-y-6">
-                        <h3 className="text-3xl font-playfair gold-gradient-text tracking-tighter">TOURWEB</h3>
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/30 leading-loose max-w-xs">
-                            Curating exclusive Dubai experiences for the discerning mind. Desert purity, Tech precision, Fusion excellence.
+                    <div className="md:col-span-5 space-y-8">
+                        <div>
+                            <h3 className="text-4xl font-playfair gold-gradient-text tracking-tighter mb-2">TOURWEB</h3>
+                            <span className="text-[10px] uppercase tracking-[0.4em] text-white/20">Dubai Elite Concierge</span>
+                        </div>
+                        <p className="text-[13px] text-white/50 leading-loose max-w-sm font-light">
+                            Crafting bespoke narratives in the City of Gold. From the silence of the dune to the pulse of the marina, we curate the impossible.
                         </p>
                     </div>
 
                     {/* Explore */}
-                    <div className="md:col-span-2 space-y-6">
-                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Explore</h4>
+                    <div className="md:col-span-2 md:col-start-7 space-y-8">
+                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Menu</h4>
+                        <ul className="space-y-4">
+                            {[
+                                { name: 'Home', href: '/' },
+                                { name: 'About', href: '/about' },
+                                { name: 'Packages', href: '/packages' },
+                                { name: 'Contact', href: '#' },
+                            ].map(link => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-[11px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors">
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Collection */}
+                    <div className="md:col-span-2 space-y-8">
+                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Series</h4>
                         <ul className="space-y-4">
                             {[
                                 { name: 'Desert', href: '/packages?cat=desert' },
@@ -31,41 +56,27 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services */}
-                    <div className="md:col-span-3 space-y-6">
-                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Concierge</h4>
-                        <ul className="space-y-4 text-[11px] uppercase tracking-[0.15em] text-white/40">
-                            <li>+971 4 123 4567</li>
-                            <li>concierge@tourweb.ae</li>
-                            <li>Downtown Dubai, UAE</li>
-                        </ul>
-                    </div>
-
                     {/* Social */}
-                    <div className="md:col-span-3 space-y-6">
-                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Connect</h4>
-                        <div className="flex gap-6">
-                            {['IG', 'X', 'FB'].map(social => (
-                                <a
-                                    key={social}
-                                    href="#"
-                                    className="text-[11px] uppercase tracking-[0.3em] text-white/30 hover:text-[#c5a021] transition-colors"
-                                >
-                                    {social}
-                                </a>
+                    <div className="md:col-span-2 space-y-8">
+                        <h4 className="text-[10px] uppercase tracking-[0.5em] text-[#c5a021] font-bold">Follow</h4>
+                        <ul className="space-y-4">
+                            {['Instagram', 'Twitter', 'LinkedIn'].map(social => (
+                                <li key={social}>
+                                    <a href="#" className="text-[11px] uppercase tracking-[0.2em] text-white/40 hover:text-[#c5a021] transition-colors">{social}</a>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-white/[0.03] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <span className="text-[9px] uppercase tracking-[0.5em] text-white/20">
-                        © 2026 TOURWEB — All Rights Reserved
+                <div className="border-t border-white/[0.05] pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">
+                        © 2026 TourWeb Elite
                     </span>
                     <div className="flex gap-8">
-                        <a href="#" className="text-[9px] uppercase tracking-[0.3em] text-white/20 hover:text-white/50 transition-colors">Privacy</a>
-                        <a href="#" className="text-[9px] uppercase tracking-[0.3em] text-white/20 hover:text-white/50 transition-colors">Terms</a>
+                        <a href="#" className="text-[9px] uppercase tracking-[0.3em] text-white/20 hover:text-white/50 transition-colors">Privacy Policy</a>
+                        <a href="#" className="text-[9px] uppercase tracking-[0.3em] text-white/20 hover:text-white/50 transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>

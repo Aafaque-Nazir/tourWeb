@@ -1,18 +1,20 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { El_Messiri, Lato } from 'next/font/google';
 import './globals.css';
 import { clsx } from 'clsx';
 
-const playfair = Playfair_Display({
+const elMessiri = El_Messiri({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-messiri',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
-const inter = Inter({
+const lato = Lato({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-lato',
   display: 'swap',
+  weight: ['100', '300', '400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='scroll-smooth'>
-      <body className={clsx(inter.variable, playfair.variable, 'antialiased min-h-screen flex flex-col')}>
+      <body className={clsx(lato.variable, elMessiri.variable, 'antialiased min-h-screen flex flex-col')}>
         {children}
       </body>
     </html>

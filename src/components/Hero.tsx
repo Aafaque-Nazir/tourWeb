@@ -17,7 +17,7 @@ export default function Hero() {
                 className="absolute inset-0 z-0"
             >
                 <Image
-                    src="https://images.unsplash.com/photo-1549244837-77567e91d5ce?q=80&w=2800"
+                    src="https://images.unsplash.com/photo-1512453979798-5ea904ac66de?q=80&w=2800&auto=format&fit=crop"
                     alt="Dubai Mirage"
                     fill
                     className="object-cover scale-105"
@@ -25,10 +25,12 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-transparent to-transparent opacity-80" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+                {/* Nano Tech Overlay */}
+                <div className="absolute inset-0 nano-overlay opacity-30 pointer-events-none" />
             </motion.div>
 
             {/* Sexy Content Layout */}
-            <div className="container relative z-10 pt-28">
+            <div className="container relative z-10 pt-48 md:pt-60">
                 <div className="max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -41,7 +43,7 @@ export default function Hero() {
 
                         <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] font-playfair text-white leading-[0.85] tracking-tighter mb-8">
                             THE <br />
-                            <span className="gold-gradient-text italic">MIRAGE</span> <br />
+                            <span className="gold-gradient-text">MIRAGE</span> <br />
                             EFFECT
                         </h1>
 

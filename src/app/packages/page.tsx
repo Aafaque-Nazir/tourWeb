@@ -8,16 +8,24 @@ export default function PackagesPage() {
         <main className="min-h-screen bg-[#020617] text-[#f8fafc]">
             <Navbar />
 
-            <section className="pt-40 pb-16 container">
-                <span className="text-[11px] uppercase tracking-[0.5em] text-[#c5a021] mb-6 block font-medium">
-                    Full Catalogue
-                </span>
-                <h1 className="text-5xl md:text-8xl font-playfair text-white tracking-tighter leading-none mb-6">
-                    ALL <span className="italic">EXPERIENCES</span>
-                </h1>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-white/30 max-w-md leading-loose">
-                    Browse our expertly curated desert, tech, and fusion collections. Each experience includes instant hotel pickup.
-                </p>
+            <section className="pt-40 pb-20 container relative">
+                {/* Background Text Overlay */}
+                <div className="absolute top-10 left-0 text-[15vw] font-playfair text-white/[0.02] pointer-events-none select-none italic tracking-tighter leading-none z-0">
+                    CATALOGUE
+                </div>
+
+                <div className="relative z-10">
+                    <span className="text-[11px] uppercase tracking-[0.5em] text-[#c5a021] mb-6 block font-medium">
+                        Full Catalogue
+                    </span>
+                    <h1 className="text-5xl md:text-8xl font-playfair text-white tracking-tighter leading-none mb-8">
+                        ALL <span className="italic">EXPERIENCES</span>
+                    </h1>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-white/40 max-w-lg leading-loose border-l border-[#c5a021] pl-6">
+                        Browse our expertly curated desert, tech, and fusion collections. <br />
+                        Each experience includes VIP concierge & instant hotel pickup.
+                    </p>
+                </div>
             </section>
 
             <section className="pb-32 container">

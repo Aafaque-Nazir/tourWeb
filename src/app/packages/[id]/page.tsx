@@ -20,10 +20,13 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
             <Navbar />
 
             {/* Cinematic Hero */}
-            <section className="relative h-[70vh] w-full flex items-end pb-20">
+            <section className="relative h-[70vh] w-full flex items-end pb-20 overflow-hidden">
                 <Image src={pkg.image} alt={pkg.title} fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/60 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+
+                {/* Nano Tech Overlay */}
+                <div className="absolute inset-0 nano-overlay opacity-20 pointer-events-none" />
 
                 <div className="container relative z-10 max-w-3xl">
                     <span className="inline-block text-[10px] uppercase tracking-[0.5em] text-[#c5a021] mb-4 font-bold">
@@ -74,11 +77,11 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
                                     { time: '12:00', title: 'Core Experience', desc: 'The main activity commences with VIP access.' },
                                     { time: '14:00', title: 'Gourmet Dining', desc: 'Five-star catered meal with refreshments.' },
                                 ].map((item, idx) => (
-                                    <div key={idx} className="relative pl-10 py-8 hover:bg-white/[0.01] transition-colors">
-                                        <div className="absolute left-[-5px] top-10 w-[10px] h-[10px] bg-[#c5a021]" />
-                                        <span className="text-[10px] tracking-[0.4em] text-[#c5a021] font-bold block mb-2">{item.time}</span>
-                                        <h4 className="text-lg font-playfair text-white mb-2">{item.title}</h4>
-                                        <p className="text-[11px] text-white/40 uppercase tracking-[0.1em]">{item.desc}</p>
+                                    <div key={idx} className="relative pl-10 py-8 group transition-all duration-500 hover:bg-white/[0.02]">
+                                        <div className="absolute left-[-5px] top-10 w-[10px] h-[10px] bg-[#050a18] border border-[#c5a021] group-hover:bg-[#c5a021] transition-colors duration-500" />
+                                        <span className="text-[10px] tracking-[0.4em] text-[#c5a021] font-bold block mb-2 opacity-70 group-hover:opacity-100 transition-opacity">{item.time}</span>
+                                        <h4 className="text-lg font-playfair text-white mb-2 group-hover:translate-x-2 transition-transform duration-500">{item.title}</h4>
+                                        <p className="text-[11px] text-white/40 uppercase tracking-[0.1em] group-hover:text-white/60 transition-colors">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
