@@ -72,3 +72,5 @@ const PackageHero = ({ image, title, category, duration, price }: PackageHeroPro
         </section>
     );
 }
+
+export default PackageHero;
