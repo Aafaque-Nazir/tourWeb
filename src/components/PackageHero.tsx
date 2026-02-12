@@ -17,7 +17,7 @@ const PackageHero = ({ image, title, category, duration, price }: PackageHeroPro
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
     return (
-        <section className="relative h-[85vh] w-full overflow-hidden flex items-end pb-24 pt-48">
+        <section className="relative min-h-[75vh] md:min-h-[85vh] w-full overflow-hidden flex flex-col justify-end pt-44 pb-20 md:pb-24">
             {/* Parallax Image Background */}
             <motion.div style={{ y, opacity: 1 }} className="absolute inset-0 z-0">
                 <Image
@@ -33,13 +33,13 @@ const PackageHero = ({ image, title, category, duration, price }: PackageHeroPro
                 <div className="absolute inset-0 nano-overlay opacity-20 pointer-events-none" />
             </motion.div>
 
-            <div className="container relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+            <div className="container relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-end mt-auto">
                 <div className="md:col-span-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="pt-20"
+                        className="mb-0"
                     >
                         <div className="flex items-center gap-4 mb-6">
                             <span className="h-[1px] w-12 bg-[#c5a021]" />
@@ -48,7 +48,7 @@ const PackageHero = ({ image, title, category, duration, price }: PackageHeroPro
                             </span>
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl font-playfair text-white tracking-tighter leading-[0.9] mb-8">
+                        <h1 className="text-5xl md:text-7xl font-playfair text-white tracking-tighter leading-[1.1] mb-8">
                             {title}
                         </h1>
 

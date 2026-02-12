@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { El_Messiri, Lato } from 'next/font/google';
 import './globals.css';
 import { clsx } from 'clsx';
+import FloatingButton from '@/components/FloatingButton';
 
 const elMessiri = El_Messiri({
   subsets: ['latin'],
@@ -31,7 +32,9 @@ export default function RootLayout({
     <html lang="en" className='scroll-smooth'>
       <body className={clsx(lato.variable, elMessiri.variable, 'antialiased min-h-screen flex flex-col')}>
         {children}
+        <FloatingButton />
       </body>
     </html>
   );
 }
+

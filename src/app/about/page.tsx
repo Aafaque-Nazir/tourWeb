@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import StatsCounter from '@/components/StatsCounter';
 import Image from 'next/image';
 
 export default function About() {
@@ -68,22 +69,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Stats / Proof */}
-            <section className="py-20 border-y border-white/5 bg-[#050a18]">
-                <div className="container grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-                    {[
-                        { label: 'Private Guests', value: '12k+' },
-                        { label: 'Years Active', value: '08' },
-                        { label: 'Elite Partners', value: '45' },
-                        { label: 'Global Awards', value: '12' },
-                    ].map((stat, i) => (
-                        <div key={i} className="space-y-2">
-                            <span className="text-4xl md:text-5xl font-playfair text-white block">{stat.value}</span>
-                            <span className="text-[9px] uppercase tracking-[0.3em] text-[#c5a021]">{stat.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <StatsCounter />
 
             {/* Team / Fleet Teaser */}
             <section className="py-32 container text-center">
@@ -96,7 +82,7 @@ export default function About() {
 
                 <div className="relative w-full h-[500px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
                     <Image
-                        src="https://images.unsplash.com/photo-1563720360172-67b8f3dce1e3?q=80&w=2670&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2670&auto=format&fit=crop"
                         alt="Luxury Fleet"
                         fill
                         className="object-cover"

@@ -6,10 +6,13 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { packages } from '@/lib/data';
+import BookingDrawer from '@/components/BookingDrawer';
 
 const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -124,9 +127,21 @@ export default function Navbar() {
                         About
                     </Link>
 
-                    <button className="btn-sexy scale-90">
-                        Book Now
-                    </button>
+                    <Link
+                        href="/blog"
+                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                    >
+                        Blog
+                    </Link>
+
+                    <Link
+                        href="/contact"
+                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                    >
+                        Contact
+                    </Link>
+
+                    <BookingDrawer />
                 </div>
 
                 {/* Mobile menu button */}
@@ -165,7 +180,9 @@ export default function Navbar() {
                         >
                             Packages
                         </Link>
-                        <button className="btn-sexy mt-8 px-12 py-4 text-sm scale-110">Reserve Now</button>
+                        <div className="mt-8">
+                            <BookingDrawer />
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

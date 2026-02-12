@@ -8,7 +8,7 @@ export default function PackagesPage() {
         <main className="min-h-screen bg-[#020617] text-[#f8fafc]">
             <Navbar />
 
-            <section className="pt-40 pb-20 container relative">
+            <section className="pt-48 md:pt-56 pb-20 container relative">
                 {/* Background Text Overlay */}
                 <div className="absolute top-10 left-0 text-[15vw] font-playfair text-white/[0.02] pointer-events-none select-none italic tracking-tighter leading-none z-0">
                     CATALOGUE
