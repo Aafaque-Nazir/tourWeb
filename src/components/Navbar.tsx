@@ -51,7 +51,7 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-12">
                     <Link
                         href="/"
-                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                        className="text-[13px] uppercase tracking-[0.2em] font-playfair font-medium text-white/80 hover:text-[hsl(var(--primary))] transition-colors"
                     >
                         Home
                     </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
                         onMouseLeave={() => setDropdownOpen(false)}
                     >
                         <button
-                            className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[#c5a021] transition-colors relative z-50 h-full"
+                            className="flex items-center gap-2 text-[13px] uppercase tracking-[0.2em] font-playfair font-medium text-white/80 hover:text-[#c5a021] transition-colors relative z-50 h-full"
                             onClick={() => setDropdownOpen(!dropdownOpen)}
                         >
                             Packages <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${dropdownOpen ? 'rotate-180 text-[#c5a021]' : ''}`} />
@@ -122,21 +122,21 @@ export default function Navbar() {
 
                     <Link
                         href="/about"
-                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                        className="text-[13px] uppercase tracking-[0.2em] font-playfair font-medium text-white/80 hover:text-[hsl(var(--primary))] transition-colors"
                     >
                         About
                     </Link>
 
                     <Link
                         href="/blog"
-                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                        className="text-[13px] uppercase tracking-[0.2em] font-playfair font-medium text-white/80 hover:text-[hsl(var(--primary))] transition-colors"
                     >
                         Blog
                     </Link>
 
                     <Link
                         href="/contact"
-                        className="text-[11px] uppercase tracking-[0.25em] font-medium text-white/70 hover:text-[hsl(var(--primary))] transition-colors"
+                        className="text-[13px] uppercase tracking-[0.2em] font-playfair font-medium text-white/80 hover:text-[hsl(var(--primary))] transition-colors"
                     >
                         Contact
                     </Link>
