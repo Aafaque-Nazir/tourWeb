@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Package } from '@/lib/data';
+import { Package } from '@/lib/actions/packages';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
 

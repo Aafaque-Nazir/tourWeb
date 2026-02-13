@@ -1,4 +1,4 @@
-import { packages } from '@/lib/data';
+import { getPackage, getPackages } from '@/lib/actions/packages';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
@@ -6,13 +6,14 @@ import PackageHero from '@/components/PackageHero';
 import { Check, Clock, MapPin, Star, Car, Sparkles } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+    const packages = await getPackages();
     return packages.map((pkg) => ({ id: pkg.id }));
 }
 
 export default async function PackageDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    const pkg = packages.find((p) => p.id === id);
+    const pkg = await getPackage(id);
     if (!pkg) notFound();
 
     return (
@@ -49,7 +50,7 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
                                 <span className="text-[#c5a021]">02.</span> Highlights
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {pkg.highlights.map((h, i) => (
+                                {pkg.highlights?.map((h, i) => (
                                     <div key={i} className="flex items-center gap-4 p-6 border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-colors group">
                                         <div className="w-10 h-10 flex items-center justify-center border border-[#c5a021]/30 rounded-full group-hover:border-[#c5a021] transition-colors">
                                             <Star className="w-4 h-4 text-[#c5a021]" />
@@ -92,7 +93,7 @@ export default async function PackageDetail({ params }: { params: Promise<{ id: 
                                 <span className="text-[#c5a021]">04.</span> What&apos;s Included
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                {pkg.includedServices.map((service, i) => (
+                                {pkg.included_services?.map((service, i) => (
                                     <div
                                         key={i}
                                         className="flex items-center gap-4 p-4 border border-white/[0.04] bg-white/[0.01] hover:bg-[#c5a021]/[0.03] hover:border-[#c5a021]/20 transition-all duration-300 group"

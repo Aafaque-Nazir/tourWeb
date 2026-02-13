@@ -4,7 +4,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
-export default function Hero() {
+interface HeroProps {
+    heading?: string;
+    subheading?: string;
+    backgroundImage?: string;
+}
+
+export default function Hero({
+    heading = "THE MIRAGE EFFECT",
+    subheading = "Desert. Tech. Fusion. Instant VIP mobility for the discerning traveler already in Dubai.",
+    backgroundImage = "/assets/main-hero.png"
+}: HeroProps) {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 150]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -17,8 +27,8 @@ export default function Hero() {
                 className="absolute inset-0 z-0"
             >
                 <Image
-                    src="/assets/main-hero.png"
-                    alt="Dubai Mirage"
+                    src={backgroundImage}
+                    alt="Hero Background"
                     fill
                     className="object-cover scale-105"
                     priority
@@ -41,16 +51,12 @@ export default function Hero() {
                             Available Now In-City
                         </span>
 
-                        <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] font-playfair text-white leading-[0.85] tracking-tighter mb-8">
-                            THE <br />
-                            <span className="gold-gradient-text">MIRAGE</span> <br />
-                            EFFECT
+                        <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] font-playfair text-white leading-[0.85] tracking-tighter mb-8 whitespace-pre-line">
+                            {heading}
                         </h1>
 
-                        <p className="text-sm md:text-base text-white/50 max-w-sm mb-12 font-light leading-relaxed uppercase tracking-widest">
-                            Desert. Tech. Fusion. <br />
-                            Instant VIP mobility for the <br />
-                            discerning traveler already in Dubai.
+                        <p className="text-sm md:text-base text-white/50 max-w-sm mb-12 font-light leading-relaxed uppercase tracking-widest whitespace-pre-line">
+                            {subheading}
                         </p>
 
                         <div className="flex flex-wrap gap-8 items-center">

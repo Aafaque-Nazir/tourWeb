@@ -98,13 +98,20 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                     </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form action="https://formspree.io/f/mnjbplna" method="POST" className="space-y-5">
+                    {/* Hidden Fields for Context */}
+                    <input type="hidden" name="_subject" value={`New Booking Request: ${packageTitle}`} />
+                    <input type="hidden" name="Package" value={packageTitle} />
+                    <input type="hidden" name="Estimated Total" value={`$${price * guests}`} />
+                    {/* Honeypot */}
+                    <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
                     {/* Full Name */}
                     <div>
                         <label className={labelClasses}>Full Name</label>
                         <div className="relative">
                             <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
-                            <input type="text" required className={`${inputClasses} pl-12`} placeholder="John Doe" />
+                            <input type="text" name="name" required className={`${inputClasses} pl-12`} placeholder="John Doe" />
                         </div>
                     </div>
 
@@ -113,7 +120,7 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                         <label className={labelClasses}>Email Address</label>
                         <div className="relative">
                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
-                            <input type="email" required className={`${inputClasses} pl-12`} placeholder="john@example.com" />
+                            <input type="email" name="email" required className={`${inputClasses} pl-12`} placeholder="john@example.com" />
                         </div>
                     </div>
 
@@ -122,7 +129,7 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                         <label className={labelClasses}>Phone / WhatsApp</label>
                         <div className="relative">
                             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
-                            <input type="tel" required className={`${inputClasses} pl-12`} placeholder="+971 50 123 4567" />
+                            <input type="tel" name="phone" required className={`${inputClasses} pl-12`} placeholder="+971 50 123 4567" />
                         </div>
                     </div>
 
@@ -132,12 +139,13 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                             <label className={labelClasses}>Preferred Date</label>
                             <div className="relative">
                                 <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
-                                <input type="date" required className={`${inputClasses} pl-12`} style={{ colorScheme: 'dark' }} />
+                                <input type="date" name="date" required className={`${inputClasses} pl-12`} style={{ colorScheme: 'dark' }} />
                             </div>
                         </div>
                         <div>
                             <label className={labelClasses}>Guests</label>
                             <select
+                                name="guests"
                                 className={`${inputClasses} cursor-pointer appearance-none`}
                                 value={guests}
                                 onChange={(e) => setGuests(Number(e.target.value))}
@@ -154,7 +162,7 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                         <label className={labelClasses}>Hotel / Pickup Location</label>
                         <div className="relative">
                             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" />
-                            <input type="text" required className={`${inputClasses} pl-12`} placeholder="Your Hotel Name & Room No." />
+                            <input type="text" name="location" required className={`${inputClasses} pl-12`} placeholder="Your Hotel Name & Room No." />
                         </div>
                     </div>
 
@@ -164,6 +172,7 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                         <div className="relative">
                             <MessageSquare className="absolute left-4 top-3.5 w-4 h-4 text-white/15" />
                             <textarea
+                                name="message"
                                 rows={3}
                                 className={`${inputClasses} pl-12 resize-none`}
                                 placeholder="Dietary needs, celebrations, accessibility..."
@@ -187,6 +196,10 @@ export default function BookingForm({ packageTitle, price, duration }: BookingFo
                         <div className="absolute inset-0 -translate-x-full hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                         {loading ? <Loader2 className="animate-spin w-4 h-4" /> : 'Confirm Reservation'}
                     </button>
+
+                    <p className="text-[8px] text-white/20 text-center uppercase tracking-widest mt-2">
+                        You will be redirected to confirm via Email
+                    </p>
 
                     {/* Trust badges */}
                     <div className="flex items-center justify-center gap-6 pt-2">
