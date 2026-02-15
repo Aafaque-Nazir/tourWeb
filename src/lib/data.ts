@@ -7,8 +7,8 @@ export interface Package {
     image: string;
     description: string;
     highlights: string[];
-    includedServices: string[];
-    pickupReady: boolean;
+    included_services: string[];
+    pickup_ready: boolean;
 }
 
 export const packages: Package[] = [
@@ -21,7 +21,7 @@ export const packages: Package[] = [
         image: '/assets/desert-hero.png',
         description: 'A high-octane expedition into the heart of the Arabian desert. Private 4x4 dune bashing, falconry, and a secluded gourmet majlis dinner.',
         highlights: ['Instant Hotel Pickup', 'Private Luxury Majlis', 'Elite Sands Access'],
-        includedServices: [
+        included_services: [
             'Private 4x4 Luxury Vehicle',
             'Professional Safari Guide',
             'Gourmet Majlis Dinner',
@@ -31,7 +31,7 @@ export const packages: Package[] = [
             'Hotel Pickup & Drop-off',
             'Professional Photography',
         ],
-        pickupReady: true,
+        pickup_ready: true,
     },
     {
         id: 'tech-horizon-cyber',
@@ -42,7 +42,7 @@ export const packages: Package[] = [
         image: '/assets/tech-hero.png',
         description: 'Explore the architectural future of Dubai. Private tour of the Museum of the Future and an exclusive access to the Sky View glass slide.',
         highlights: ['VIP Museum Entrance', 'Sky View Glass Access', 'Tech Hub Insights'],
-        includedServices: [
+        included_services: [
             'Skip-the-Line VIP Tickets',
             'Private Expert Guide',
             'Premium Refreshments',
@@ -52,7 +52,7 @@ export const packages: Package[] = [
             'AR Experience Session',
             'Complimentary Wi-Fi Device',
         ],
-        pickupReady: true,
+        pickup_ready: true,
     },
     {
         id: 'fusion-flow-night',
@@ -63,7 +63,7 @@ export const packages: Package[] = [
         image: '/assets/fusion-hero.png',
         description: 'The ultimate Dubai duality. A serene desert sunset followed by a high-fashion night cruise through the Neon-lit Dubai Marina.',
         highlights: ['Sunset Desert Safari', 'Neon Marina Cruise', 'Five-Star Catering'],
-        includedServices: [
+        included_services: [
             'Desert Sunset Safari',
             'Private Marina Yacht Cruise',
             'Five-Star Gourmet Dinner',
@@ -73,6 +73,6 @@ export const packages: Package[] = [
             'Live Entertainment Onboard',
             'Premium Open Bar',
         ],
-        pickupReady: true,
+        pickup_ready: true,
     },
 ];

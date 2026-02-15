@@ -15,8 +15,8 @@ export async function GET() {
             image: pkg.image,
             description: pkg.description,
             highlights: pkg.highlights,
-            included_services: pkg.includedServices, // different key name in DB
-            pickup_ready: pkg.pickupReady,          // different key name in DB
+            included_services: pkg.included_services,
+            pickup_ready: pkg.pickup_ready,
         }));
 
         const { error: pkgError } = await supabase
